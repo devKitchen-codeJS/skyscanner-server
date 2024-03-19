@@ -10,3 +10,5 @@ const CitySchema = new Schema({
   city_code: { type: String, required: true },
 });
 module.exports = mongoose.model("CitySchema", CitySchema);
+
+
