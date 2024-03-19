@@ -4,7 +4,7 @@ module.exports.createAirport = async function (req, res) {};
 
 module.exports.getAllAirports = async function (req, res) {
   try {
-    const airports = await AirportModel.find({});
+    const airports = await AirportModel.find({}).populate('city').populate('country');
     if (!airports.length) return res.status(404).json({ message: "No data" });
     return res.json(airports);
   } catch (error) {
@@ -27,3 +27,7 @@ module.exports.getAirportById = async function (req, res) {
   }
 };
 
+
+
+// docker run --name  master-service-postgres_master-1 -e POSTGRES_PASSWORD=123456 -d --network=my_network postgres:latest
+// docker run --name slave-service-postgres_slave-1 -e POSTGRES_PASSWORD=123456 -d --network=my_network postgres:latest

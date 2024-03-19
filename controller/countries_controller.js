@@ -20,7 +20,7 @@ module.exports.createCountry = async function (req, res) {
 module.exports.getAllCountries = async function (req, res) {
   try {
     const country = await CountryModel.find({});
-    if (!country.length) return res.status(404).json({ message: "No data" });
+    // if (!country.length) return res.status(404).json({ message: "No data" });
     return res.json(country);
   } catch (error) {
     console.log("error", error);
@@ -34,7 +34,7 @@ module.exports.getCountryById = async function (req, res) {
   try {
     const country = await CountryModel.findById(id);
     console.log("[country]", country);
-    if(!country.length) return res.status(404).json({message: 'No data'})
+    // if(!country.length) return res.status(404).json({message: 'No data'})
     res.json(country);
   } catch (error) {
     console.log(error);
